@@ -40,5 +40,6 @@ const productsSlice = createSlice({
   },
 });
 
+// our actions, no need to explicitly define them
 export const { setProducts, filterByBrand, filterByCategory } = productsSlice.actions;
 export default productsSlice.reducer;
