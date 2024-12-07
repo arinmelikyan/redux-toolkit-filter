@@ -36,10 +36,15 @@ const productsSlice = createSlice({
         const matchesCategory = !state.selectedCategory || product.category === state.selectedCategory;
         return matchesBrand && matchesCategory;
       });
+    },
+    clearFilters: (state) => {
+        state.filteredProducts = [];
+        state.selectedBrands = [];
+        state.selectedCategory = null;
     }
   },
 });
 
 // our actions, no need to explicitly define them
-export const { setProducts, filterByBrand, filterByCategory } = productsSlice.actions;
+export const { setProducts, filterByBrand, filterByCategory, clearFilters } = productsSlice.actions;
 export default productsSlice.reducer;

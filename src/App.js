@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { setProducts, filterByBrand, filterByCategory } from './features/productsSlice';
+import { setProducts, filterByBrand, filterByCategory, clearFilters } from './features/productsSlice';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -38,6 +38,10 @@ const App = () => {
     dispatch(filterByCategory(event.target.value));
   };
 
+  const clearAllFilters = () => {
+    dispatch(clearFilters())
+  }
+
   return (
     <div>
       <h1>Products</h1>
@@ -64,6 +68,10 @@ const App = () => {
             </option>
           ))}
         </select>
+      </div>
+
+      <div style={{ marginTop: '10px' }}>
+        <button onClick={clearAllFilters}>Clear Filters</button>
       </div>
 
       <ul>
